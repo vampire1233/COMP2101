@@ -23,16 +23,16 @@ Found $(find ~/Pictures -type f|wc -l) files in the Pictures directory.
 The Pictures directory uses $(du -sh ~/Pictures|awk '{print $1}') space on the disk.
 EOF
 
-#make a
+#make a directory
 test -d ~/MyPictures || mkdir ~/MyPictures
 
-#
+#download a tarfile of pictures to our Pictures directory
 test -f ~/MyPictures/pics.tgz || wget -q -O ~/MyPictures/pics.tgz https://zonzorp.net/pics.tgz
 
-#
+#unpack the downloaded tarfile if it is there, then delete the local copy of the tarfile
 test -f ~/MyPictures/pics.tgz && tar -xzf ~/MyPictures/pics.tgz -C ~/MyPictures && rm ~/MyPictures/pics.tgz
 
-#
+#Make a report on what we have in the Pictures directory
 test -d ~/MyPictures && cat <<EOF
 Found $(find ~/MyPictures -type f|wc -l) files in the Pictures directory.
 The Pictures directory uses $(du -sh ~/MyPictures|awk '{print $1}') space on the disk.
