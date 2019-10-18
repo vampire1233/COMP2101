@@ -19,12 +19,12 @@ numberOfSleeps=10 # how many sleeps to wait for before quitting for inactivity
 
 #### Functions
 function StartAgain {
-  echo "Oooops!!! you can not interrupt the count"
+  echo "sorry, you can not interrupt the count"
   sleepCount=$numberOfSleeps+1
 }
 
 function Surprise {
-  echo "Ahhhaaa!! you found secret for quiting the loop"
+  echo "you found top secret for quiting the loop"
   exit
 }
 
